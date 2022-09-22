@@ -4,6 +4,6 @@ export class Users extends Document {
   email: string;
   password: string;
   role: string;
-  name: string;
+  full_name: string;
   phone: number;
 }
