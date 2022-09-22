@@ -1,8 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import { Users } from './users.interface';
 
 @Injectable()
@@ -11,6 +15,16 @@ export class UsersService {
     @InjectModel('Users') private readonly usersModel: Model<Users>,
   ) {}
   async create(createUserDto: CreateUserDto) {
+    const thereIsAnUser = await this.usersModel
+      .findOne({
+        email: createUserDto.email,
+      })
+      .exec();
+
+    if (thereIsAnUser) {
+      throw new ConflictException('Email already exists');
+    }
+
     return this.usersModel.create(createUserDto);
   }
 
@@ -19,11 +33,18 @@ export class UsersService {
   }
 
   async findOne(id: string) {
-    return this.usersModel.findById(id).exec();
+    if (mongoose.Types.ObjectId.isValid(id))
+      return this.usersModel.findById(id).select('-password').exec();
+    throw new BadRequestException('Invalid Id');
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    return this.usersModel.updateOne({ _id: id }, updateUserDto).exec();
+    if (mongoose.Types.ObjectId.isValid(id))
+      return this.usersModel
+        .findByIdAndUpdate({ _id: id }, updateUserDto, { new: true })
+        .select('-password')
+        .exec();
+    throw new BadRequestException('Invalid Id');
   }
 
   async remove(id: string) {
