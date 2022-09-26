@@ -24,4 +24,4 @@ jobs:
 
       - name: Run linters
         run:
-          yarn lint
+          yarn eslint "{src,apps,libs,test}/**/*.ts"
