@@ -1,9 +1,6 @@
-name: 'coverage'
+name: 'Coverage'
 on:
     pull_request:
-        branches:
-            - develop
-            - master
 jobs:
     coverage:
         runs-on: ubuntu-latest

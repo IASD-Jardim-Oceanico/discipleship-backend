@@ -1,10 +1,22 @@
 import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
-
-const MONGO_DB_URL = 'mongodb://localhost:27017/health-fair';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
-  imports: [MongooseModule.forRoot(MONGO_DB_URL), UsersModule],
+  imports: [
+    MongooseModule.forRootAsync({
+      imports: [
+        ConfigModule.forRoot({
+          envFilePath: '.env',
+        }),
+      ],
+      inject: [ConfigService],
+      useFactory: async (config: ConfigService) => ({
+        uri: config.get<string>('MONGO_HOST'), // Loaded from .ENV
+      }),
+    }),
+    UsersModule,
+  ],
 })
 export class AppModule {}
