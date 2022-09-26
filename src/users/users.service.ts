@@ -43,7 +43,7 @@ export class UsersService {
       return this.usersModel
         .findByIdAndUpdate({ _id: id }, updateUserDto, { new: true })
         .select('-password')
-        .exec();
+        .exec()
     throw new BadRequestException('Invalid Id');
   }
 
