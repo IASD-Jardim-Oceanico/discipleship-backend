@@ -37,5 +37,5 @@ export class CreateUserDto {
   @Length(11, 11, {
     message: 'Must be a valid cellphone number',
   })
-  readonly phone: number;
+  readonly phone?: number;
 }
