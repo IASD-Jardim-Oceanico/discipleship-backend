@@ -1,7 +1,4 @@
-import mongoose from 'mongoose';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
-
-const mockObjectId = new mongoose.Types.ObjectId();
 
 export const mockUser = {
   _id: '6336439b82f8ee89122f6eb6',
@@ -9,6 +6,17 @@ export const mockUser = {
   role: 'SUPPORT',
   full_name: 'Ximenes',
   phone: '21981542501',
+  createdAt: '2022-09-30T01:17:15.545Z',
+  updatedAt: '2022-09-30T01:17:15.545Z',
+  __v: 0,
+};
+
+export const mockUserUpdatedPhone = {
+  _id: '6336439b82f8ee89122f6eb6',
+  email: 'ximenes@gmail.com',
+  role: 'SUPPORT',
+  full_name: 'Ximenes',
+  phone: '21981876425',
   createdAt: '2022-09-30T01:17:15.545Z',
   updatedAt: '2022-09-30T01:17:15.545Z',
   __v: 0,
@@ -73,3 +81,5 @@ export const mockUsersList = [
     __v: 0,
   },
 ];
+
+export const mockUserId = '6336439b82f8ee89122f6eb6';
