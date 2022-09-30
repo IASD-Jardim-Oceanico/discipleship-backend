@@ -2,10 +2,9 @@ import {
   IsEmail,
   IsEnum,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
+  IsPhoneNumber,
   IsString,
-  Length,
   MinLength,
 } from 'class-validator';
 import { UsersRole } from '../entities/user.entity';
@@ -30,12 +29,11 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
+  @MinLength(3)
   readonly full_name: string;
 
-  @IsNumber()
+  @IsString()
   @IsOptional()
-  @Length(11, 11, {
-    message: 'Must be a valid cellphone number',
-  })
-  readonly phone?: number;
+  @IsPhoneNumber('BR', { message: 'Pass a valid phone number' })
+  readonly phone?: string;
 }

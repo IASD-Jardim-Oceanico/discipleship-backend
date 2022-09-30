@@ -11,7 +11,7 @@ export const UsersSchema = new mongoose.Schema(
     },
     role: { type: String, required: true, enum: UsersRole },
     full_name: { type: String, required: true },
-    phone: { type: Number, minlength: 11 },
+    phone: { type: String },
   },
   { timestamps: true },
 );
