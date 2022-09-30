@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { Model } from 'mongoose';
 import { Users } from '../users.interface';
 import { UsersService } from '../users.service';
-import { createUserDto, mockUser } from './mocks';
+import { createUserDto, mockUsersList, mockUserUpdatedPhone } from './mocks';
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -16,11 +16,13 @@ describe('UsersService', () => {
         {
           provide: getModelToken('Users'),
           useValue: {
-            new: jest.fn().mockResolvedValue(mockUser),
-            constructor: jest.fn().mockResolvedValue(mockUser),
-            findOne: jest.fn(),
             create: jest.fn(),
-            exec: jest.fn(),
+            find: jest.fn().mockReturnValue({
+              exec: jest.fn().mockResolvedValueOnce(mockUsersList),
+            }),
+            findOne: jest.fn(),
+            update: jest.fn().mockResolvedValue(mockUserUpdatedPhone),
+            remove: jest.fn(),
           },
         },
       ],
@@ -41,10 +43,15 @@ describe('UsersService', () => {
 
     jest
       .spyOn(model, 'create')
-      .mockImplementationOnce(() => Promise.resolve(mockUser));
+      .mockImplementationOnce(() => Promise.resolve(mockUserUpdatedPhone));
 
     const newUser = await service.create(createUserDto);
     expect(findUser).toBeCalledTimes(1);
-    expect(newUser).toEqual(mockUser);
+    expect(newUser).toEqual(mockUserUpdatedPhone);
+  });
+
+  it('should list all users', async () => {
+    const findAllUsers = await service.findAll();
+    expect(findAllUsers).toEqual(mockUsersList);
   });
 });
