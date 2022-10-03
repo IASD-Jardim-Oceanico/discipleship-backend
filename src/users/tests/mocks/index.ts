@@ -83,3 +83,11 @@ export const mockUsersList = [
 ];
 
 export const mockUserId = '6336439b82f8ee89122f6eb6';
+
+export const mockWrongUserId = '6336439b82f8ee89122';
+
+export const mockNotExistUserId = '6336428b5ff09051fd47f5ad';
+
+export const mockNewPhone = {
+  phone: '21981876425',
+};
