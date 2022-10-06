@@ -7,9 +7,9 @@ import {
   IsString,
   MinLength,
 } from 'class-validator';
-import { UsersRole } from '../entities/user.entity';
+import { DiscipleMakerRole } from '../entities/disciple-maker.entity';
 
-export class CreateUserDto {
+export class CreateDiscipleMakerDto {
   @IsEmail()
   @IsString()
   @IsNotEmpty()
@@ -24,7 +24,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsEnum(UsersRole)
+  @IsEnum(DiscipleMakerRole)
   readonly role: string;
 
   @IsString()

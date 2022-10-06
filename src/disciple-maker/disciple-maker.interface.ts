@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export class Users extends Document {
+export class DiscipleMaker extends Document {
   email: string;
   password: string;
   role: string;

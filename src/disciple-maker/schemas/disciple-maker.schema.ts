@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
-import { UsersRole } from '../entities/user.entity';
+import { DiscipleMakerRole } from '../entities/disciple-maker.entity';
 
-export const UsersSchema = new mongoose.Schema(
+export const DiscipleMakerSchema = new mongoose.Schema(
   {
     email: { type: String, required: true, unique: true },
     password: {
@@ -9,7 +9,7 @@ export const UsersSchema = new mongoose.Schema(
       required: true,
       minlength: [8, 'Password must be 8 character or more'],
     },
-    role: { type: String, required: true, enum: UsersRole },
+    role: { type: String, required: true, enum: DiscipleMakerRole },
     full_name: { type: String, required: true },
     phone: { type: String },
   },

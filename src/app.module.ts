@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { DiscipleMaker } from './disciple-maker/disciple-maker.module';
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         uri: config.get<string>('MONGO_HOST'), // Loaded from .ENV
       }),
     }),
-    UsersModule,
+    DiscipleMaker,
   ],
 })
 export class AppModule {}
