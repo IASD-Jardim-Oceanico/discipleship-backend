@@ -1,11 +1,13 @@
-# Backend da Feira de Saúde
+# Backend do aplicativo Disciple-maker (Discipulado)
+
+
 
 ## Referência para estudos
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLE0DHiXlN_qqRNX4KpkNKvFswCXHUwoyL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=wTvnlgJb9hI&list=PLE0DHiXlN_qqRNX4KpkNKvFswCXHUwoyL&ab_channel=JorgeAluizio
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cBIUOL6MFXw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=cBIUOL6MFXw&ab_channel=Rocketseat
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0Idug0e9tPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=0Idug0e9tPw&t=2455s&ab_channel=DanieleLe%C3%A3o
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6mXi2RY5Wtw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=6mXi2RY5Wtw&t=4s&ab_channel=F%C3%A1bricadeC%C3%B3digo
