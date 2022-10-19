@@ -1,5 +1,25 @@
-# Backend do aplicativo Disciple-maker (Discipulado)
+# Disciple-maker Backend App
 
+It is a phonebook style application in which each user (Discipleship) has their contacts (Disciples). The idea is to set up screens to facilitate the management of each disciple's discipleship stage, leaving the logic and calculations to the application and focusing on the relationship and growth.
+
+<details>
+  <summary><strong>Tools used</strong></summary>
+  
+  * Nest.js
+  
+  * Mongoose
+  
+  * Docker
+  
+  * Jest
+</details>
+
+<details>
+  <summary><strong>Running</strong></summary>
+  
+      yarn && yarn start
+ 
+</details>
 
 
 ## Referência para estudos
